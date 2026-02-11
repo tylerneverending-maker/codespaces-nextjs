@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
@@ -13,6 +15,7 @@ function throwError() {
 }
 
 function Home() {
+  const router = useRouter()
   const [count, setCount] = useState(0)
   const increment = useCallback(() => {
     setCount((v) => v + 1)
@@ -73,6 +76,22 @@ function Home() {
       <div>
         <p>Optimized Image Component</p>
         <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      </div>
+      <hr className={styles.hr} />
+      <div>
+        <p>Navigation</p>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/about">Go to About (Link Component)</Link>
+            </li>
+            <li>
+              <Button onClick={() => router.push('/contact')}>
+                Go to Contact (useRouter)
+              </Button>
+            </li>
+          </ul>
+        </nav>
       </div>
       <hr className={styles.hr} />
     </main>
