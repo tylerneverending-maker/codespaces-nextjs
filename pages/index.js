@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import Head from 'next/head'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
@@ -27,6 +28,10 @@ function Home() {
   }, [increment])
 
   return (
+    <>
+      <Head>
+        <title>Fast Refresh Demo</title>
+      </Head>
     <main className={styles.main}>
       <h1>Fast Refresh Demo</h1>
       <p>
@@ -65,6 +70,7 @@ function Home() {
       </div>
       <hr className={styles.hr} />
     </main>
+    </>
   )
 }
 
