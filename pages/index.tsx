@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
@@ -67,6 +68,11 @@ function Home() {
         >
           Throw an Error
         </Button>
+      </div>
+      <hr className={styles.hr} />
+      <div>
+        <p>Optimized Image Component</p>
+        <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
       </div>
       <hr className={styles.hr} />
     </main>
